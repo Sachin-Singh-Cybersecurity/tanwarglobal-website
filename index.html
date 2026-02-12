@@ -1,99 +1,773 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanwar Global Technologies</title>
+    <title>Tanwar Global Technologies - Intelligent Systems, Reliable Solutions</title>
+    <meta name="description" content="Tanwar Global Technologies - Digital infrastructure partner delivering security, software engineering, and automation solutions worldwide. Remote-first technology partner with global delivery standards.">
+    <meta name="keywords" content="digital infrastructure, cybersecurity, web development, automation, cloud security, software engineering, digital operations">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Tanwar Global Technologies - Intelligent Systems, Reliable Solutions">
+    <meta property="og:description" content="Remote-first technology partner delivering engineering excellence worldwide. Security, software engineering, and automation solutions.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tanwarglobal.tech">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --dark-bg: #0f172a;
+            --dark-card: #1e293b;
+            --dark-border: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-border);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(59, 130, 246, 0.15), transparent 50%);
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 50px;
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeInUp 0.8s ease-out 0.2s backwards;
+        }
+
+        /* Stats Section */
+        .stats {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 12px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Section */
+        section {
+            max-width: 1200px;
+            margin: 6rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            font-size: 1.125rem;
+        }
+
+        /* Core Competencies */
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .competency-card {
+            padding: 2.5rem;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .competency-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .competency-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .competency-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .competency-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .competency-card ul {
+            list-style: none;
+            color: var(--text-muted);
+        }
+
+        .competency-card ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .competency-card ul li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* Service Packages */
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            padding: 2.5rem;
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .package-card:hover {
+            border-color: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .package-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .package-card .quote {
+            font-style: italic;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--secondary);
+        }
+
+        /* Why Section */
+        .why-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .why-card {
+            padding: 2rem;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+        }
+
+        .why-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        /* Process Timeline */
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .process-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Form */
+        .contact-section {
+            background: var(--dark-card);
+            border: 1px solid var(--dark-border);
+            border-radius: 16px;
+            padding: 3rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 2rem auto 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--dark-bg);
+            border: 1px solid var(--dark-border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-card);
+            border-top: 1px solid var(--dark-border);
+            padding: 3rem 2rem 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            padding: 0.5rem 0;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--dark-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Tanwar Global</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#contact" class="cta-btn">Start a Project</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <!-- Hero Section -->
-    <section id="hero">
-        <h1>Tanwar Global Technologies</h1>
-        <h2>Intelligent Systems. Reliable Solutions. Global Standards.</h2>
-        <p>We design, build, and manage secure digital systems for modern organizations across the world.</p>
+    <section class="hero">
+        <div class="hero-badge">NEXT-GEN INFRASTRUCTURE</div>
+        <h1>Intelligent Systems.<br>Reliable Solutions.<br>Global Standards.</h1>
+        <p>We design, build, and secure the digital backbone for modern organizations. Remote-first technology partner delivering engineering excellence worldwide.</p>
     </section>
 
-    <!-- Our Core Services -->
-    <section id="core-services">
-        <h2>Our Core Services</h2>
+    <!-- Stats Section -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Client Satisfaction</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">5+</div>
+            <div class="stat-label">Live Projects Delivered</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Core Service Areas</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">Global</div>
+            <div class="stat-label">Delivery Standards</div>
+        </div>
+    </div>
 
-        <h3>Digital Security & Reliability</h3>
-        <p>We help organizations reduce risk and keep their systems online.</p>
-        <ul>
-            <li>Security assessments for websites, applications, and cloud environments</li>
-            <li>Hardening of servers, accounts, and critical infrastructure</li>
-            <li>Ongoing monitoring and incident reporting for key digital assets</li>
-        </ul>
-
-        <h3>Software & Web Engineering</h3>
-        <p>We design and build modern, secure, and scalable digital products.</p>
-        <ul>
-            <li>Business websites and landing pages</li>
-            <li>Custom web applications and internal tools</li>
-            <li>API integrations and performance optimization</li>
-        </ul>
-
-        <h3>Automation & Digital Operations</h3>
-        <p>We make digital operations more efficient and data‑driven.</p>
-        <ul>
-            <li>Workflow automation and process optimization</li>
-            <li>Dashboards and reporting for decision‑makers</li>
-            <li>Integration of existing tools into a coherent system</li>
-        </ul>
-    </section>
-
-    <!-- What We Do -->
-    <section id="what-we-do">
-        <h2>What We Do</h2>
-        <div class="pillars">
-            <div class="pillar">
+    <!-- Core Competencies -->
+    <section id="services">
+        <h2 class="section-title">Core Competencies</h2>
+        <p class="section-subtitle">Elite engineering for mission-critical digital environments.</p>
+        
+        <div class="competencies">
+            <div class="competency-card">
+                <div class="competency-icon">🛡️</div>
                 <h3>Digital Security & Reliability</h3>
-                <p>Security audits, cloud hardening, and continuous monitoring to keep your systems safe and online.</p>
+                <p>Hardened protection for your most sensitive assets.</p>
+                <ul>
+                    <li>Security assessments & infrastructure hardening</li>
+                    <li>Cloud security configuration & monitoring</li>
+                    <li>Vulnerability scanning & remediation</li>
+                </ul>
             </div>
-            <div class="pillar">
+
+            <div class="competency-card">
+                <div class="competency-icon">&lt;/&gt;</div>
                 <h3>Software & Web Engineering</h3>
-                <p>Design and development of fast, secure, and scalable web applications and digital platforms.</p>
+                <p>High-performance platforms scaled for the world.</p>
+                <ul>
+                    <li>Modern web applications & platforms</li>
+                    <li>API development & integration</li>
+                    <li>Performance optimization & scaling</li>
+                </ul>
             </div>
-            <div class="pillar">
+
+            <div class="competency-card">
+                <div class="competency-icon">⚙️</div>
                 <h3>Automation & Digital Operations</h3>
-                <p>Workflows, analytics, and automation that make your digital operations efficient and data‑driven.</p>
+                <p>Intelligent automation for digital efficiency.</p>
+                <ul>
+                    <li>End-to-end process automation</li>
+                    <li>Real-time data visualization</li>
+                    <li>Infrastructure orchestration</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <!-- Who We Work With -->
-    <section id="who-we-work-with">
-        <h2>Who We Work With</h2>
-        <p>We partner with:</p>
-        <ul>
-            <li>Growing small and mid-sized businesses</li>
-            <li>Startups and digital agencies</li>
-            <li>Educational institutions and training providers</li>
-        </ul>
+    <!-- Service Packages -->
+    <section>
+        <h2 class="section-title">Service Packages</h2>
+        <p class="section-subtitle">Defined engagement models for predictable outcomes.</p>
+        
+        <div class="packages">
+            <div class="package-card">
+                <h3>Digital Infrastructure Audit</h3>
+                <p>Elite-level analysis of your digital estate. Comprehensive review of website, cloud accounts, performance, and security posture.</p>
+                <p class="quote">"Critical for businesses scaling beyond initial boundaries."</p>
+            </div>
+
+            <div class="package-card">
+                <h3>Modern Web Presence Build</h3>
+                <p>Secure, high-performance global web platforms. Modern, responsive design with security hardening and performance optimization.</p>
+            </div>
+
+            <div class="package-card">
+                <h3>Digital Operations & Automation Setup</h3>
+                <p>Intelligent tooling to eliminate manual friction. Workflow automation, dashboards, and seamless tool integration.</p>
+                <p class="quote">"Engineering efficiency for high-velocity teams."</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Why Tanwar Global Technologies -->
-    <section id="why-us">
-        <h2>Why Tanwar Global Technologies</h2>
-        <ul>
-            <li><strong>Engineering-first mindset</strong> – strong foundations in computer science, security, and software.</li>
-            <li><strong>Process & documentation</strong> – clear scopes, transparent deliverables, and structured reports.</li>
-            <li><strong>Future-ready</strong> – built to support security, engineering, data, and automation as you grow.</li>
-            <li><strong>Global standards</strong> – professional communication, modern tools, and reliable delivery.</li>
-        </ul>
+    <!-- Why Section -->
+    <section id="about">
+        <h2 class="section-title">Why Partner With Us?</h2>
+        <p class="section-subtitle">Founded by Sachin Singh Tanwar, BTech CSE | CEH Certified. Computer science engineer with hands-on experience in security assessments, web application development, and client project delivery. Remote-first technology partner serving organizations worldwide with engineering excellence.</p>
+        
+        <div class="why-cards">
+            <div class="why-card">
+                <h4>Engineering-First Mindset</h4>
+                <p>We prioritize technical correctness, maintainability, and scalability over shortcuts.</p>
+            </div>
+
+            <div class="why-card">
+                <h4>Clear Processes</h4>
+                <p>Transparent communication and structured workflows from day one.</p>
+            </div>
+
+            <div class="why-card">
+                <h4>Global Standards</h4>
+                <p>We apply international best practices to local business challenges.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-bottom: 2rem;">Who We Work With</h3>
+        <div class="competencies">
+            <div class="competency-card">
+                <h4>Small & Mid-sized Businesses</h4>
+                <p>Digitizing operations to compete with larger players.</p>
+            </div>
+
+            <div class="competency-card">
+                <h4>High-Growth Startups</h4>
+                <p>Needing rapid, scalable infrastructure implementation.</p>
+            </div>
+
+            <div class="competency-card">
+                <h4>Educational Institutions</h4>
+                <p>Modernizing systems for administration and learning.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Founder Note -->
-    <section id="founder-note">
-        <h2>Founder Note</h2>
-        <p>Tanwar Global Technologies was founded by Sachin Singh Tanwar as a technology organization focused on building reliable digital infrastructure for modern businesses. Our mission is to combine strong engineering with clear communication and long-term partnerships.</p>
+    <!-- Process -->
+    <section id="process">
+        <h2 class="section-title">Our Process</h2>
+        <p class="section-subtitle">A structured approach to delivery.</p>
+        
+        <div class="process">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h4>Understand</h4>
+                <p>Deep dive into your requirements and business context.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h4>Design</h4>
+                <p>Architecting secure and scalable solutions.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h4>Implement</h4>
+                <p>Agile development with regular feedback loops.</p>
+            </div>
+
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h4>Support</h4>
+                <p>Ongoing maintenance and optimization.</p>
+            </div>
+        </div>
     </section>
 
-    <!-- Call to Action -->
-    <section id="cta">
-        <h2>Call to Action</h2>
-        <p>Want to discuss your digital infrastructure or upcoming project?<br>
-        Email: contact@tanwarglobal.tech</p>
+    <!-- Contact -->
+    <section id="contact">
+        <div class="contact-section">
+            <h2 class="section-title">Ready to upgrade your digital infrastructure?</h2>
+            <p class="section-subtitle">Let's discuss how we can help your organization scale securely. Fill out the form, and we'll get back to you within 24 hours.</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="john@company.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="organization">Organization</label>
+                    <input type="text" id="organization" name="organization" placeholder="Company Name Ltd.">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">How can we help?</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Secure Message</button>
+                <p style="text-align: center; color: var(--text-muted); margin-top: 1.5rem; font-size: 0.95rem;">
+                    You can also reach us directly at <a href="mailto:contact@tanwarglobal.tech" style="color: var(--primary); text-decoration: none;">contact@tanwarglobal.tech</a>
+                </p>
+            </form>
+        </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Tanwar Global</h3>
+                <p style="color: var(--text-secondary); margin-top: 1rem;">Engineering-first digital infrastructure solutions. We build secure, reliable systems for forward-thinking organizations.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#services">Security & Reliability</a></li>
+                    <li><a href="#services">Software Engineering</a></li>
+                    <li><a href="#services">Digital Operations</a></li>
+                    <li><a href="#services">Infrastructure Audits</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="mailto:contact@tanwarglobal.tech">contact@tanwarglobal.tech</a></li>
+                    <li style="color: var(--text-secondary);">Global / Remote First</li>
+                    <li style="color: var(--text-secondary); margin-top: 0.5rem;">24-hour response time</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>© 2026 Tanwar Global Technologies. All rights reserved.</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
