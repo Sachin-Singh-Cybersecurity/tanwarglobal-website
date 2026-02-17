@@ -12,7 +12,10 @@
     <meta property="og:description" content="Remote-first technology partner delivering engineering excellence worldwide. Security, software engineering, and automation solutions.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tanwarglobal.tech">
-    
+    <meta property="og:image" content="https://tanwarglobal.tech/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <style>
         * {
             margin: 0;
@@ -712,7 +715,10 @@
             <h2 class="section-title">Ready to upgrade your digital infrastructure?</h2>
             <p class="section-subtitle">Let's discuss how we can help your organization scale securely. Fill out the form, and we'll get back to you within 24 hours.</p>
             
-            <form class="contact-form">
+            <form name="contact" method="post" data-netlify="true" class="contact-form">
+                
+                <input type="hidden" name="form-name" value="contact">
+
                 <div class="form-group">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" name="name" placeholder="John Doe" required>
@@ -772,8 +778,8 @@
         <div class="footer-bottom">
             <div>© 2026 Tanwar Global Technologies. All rights reserved.</div>
             <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
             </div>
         </div>
     </footer>
